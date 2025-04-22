@@ -1,0 +1,35 @@
+####################################
+# LOGS
+####################################
+logs
+*.log                      # Arquivos de log genéricos
+npm-debug.log*             # Logs de erro do npm
+yarn-debug.log*            # Logs de erro do yarn
+yarn-error.log*
+pnpm-debug.log*            # Logs de erro do pnpm
+lerna-debug.log*           # Logs de erro do Lerna (monorepo manager)
+
+####################################
+# DEPENDÊNCIAS E BUILDS
+####################################
+node_modules/              # Pasta com dependências — será instalada via npm/yarn
+dist/                      # Pasta de build para produção
+dist-ssr/                  # Build para Server Side Rendering (caso use)
+*.local                    # Arquivos locais de configuração ou ambiente (ex: .env.local)
+
+####################################
+# CONFIGURAÇÕES DE EDITORES
+####################################
+.vscode/*                  # Configurações do VS Code
+!.vscode/extensions.json   # Mas permite salvar sugestões de extensões úteis
+.idea/                     # Configurações do WebStorm / IntelliJ IDEA
+.DS_Store                  # Arquivo oculto gerado pelo macOS em diretórios
+
+####################################
+# CONFIGURAÇÕES DO VISUAL STUDIO
+####################################
+*.suo
+*.ntvs*                    # Projetos do Node.js no Visual Studio
+*.njsproj
+*.sln                      # Soluções do Visual Studio
+*.sw?                      # Arquivos temporários de swap (ex: *.swo, *.swp)
