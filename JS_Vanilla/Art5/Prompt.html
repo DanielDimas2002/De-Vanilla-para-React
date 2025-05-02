@@ -22,6 +22,19 @@
             const nome = prompt("Digite seu nome:");
             alert("Olá, " + nome + "!");
         }
+
+        //Pedindo Idade da forma errada
+
+        const idade = prompt("Qual a sua idade?");
+        console.log(typeof idade); //Resultado: "string"
+        console.log(idade + 1) // Vai imprimir: "251" (concatenação de string)
+
+        //Pedindo Idade da forma certa
+
+        const idadeCerta = prompt("Digite sua idade:");
+        const idadeConvertida = Number(idadeCerta);
+        console.log(idadeConvertida + 1); // Agora sim: 26 (número somado)
+
     </script>
 </body>
 

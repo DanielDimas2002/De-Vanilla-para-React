@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Alert from "./Art4/Alert";
 import Console from './Art4/Console';
-import Prompt from './Art/Prompt';
+import Prompt from './Art5/Prompt';
 
 function App() {
   return (
