@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt</title>
+</head>
+
+<body>
+
+    <h1>Exemplo de prompt com botão</h1>
+    <button onclick="pedirNome()">Clique para ativar o prompt</button>
+
+    <script>
+        const nome = prompt("Digite seu nome");
+        alert("Olá, " + nome + "!");
+
+        //Exemplo de prompt com botão
+
+        function pedirNome() {
+            const nome = prompt("Digite seu nome:");
+            alert("Olá, " + nome + "!");
+        }
+    </script>
+</body>
+
+</html>
