@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Solicita um número válido e garante que seja um número
+        window.onload = function () {
+            let numero;
+            do {
+                numero = parseFloat(prompt("Digite um número válido:"));
+            } while (isNaN(numero));
+
+            alert("Você digitou o número: " + numero);
+        };
+    </script>
+</body>
+
+</html>
