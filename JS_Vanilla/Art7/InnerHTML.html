@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizando com innerHTML</title>
+</head>
+
+<body>
+    <p id="mensagem">Olá!</p>
+    <button onclick="mudarMensagem()">Clique aqui</button>
+
+    <script>
+        function mudarMensagem() {
+            document.getElementById("mensagem").innerHTML = "<strong>Olá, <em>Visitante</em>!</strong>";
+        }
+    </script>
+</body>
+
+</html>

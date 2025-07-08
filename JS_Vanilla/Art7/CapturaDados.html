@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captura Dados</title>
+</head>
+
+<body>
+
+    <!--<h1 id="mensagem">Olá</h1>
+    <input type="text" id="nome" placeholder="Digite seu nome" />
+    <button onclick="exibirSaudacao()">Enviar</button>
+
+    <script>
+        function exibirSaudacao() {
+            const nome = document.getElementById("nome").value;
+            document.getElementById("mensagem").innerText = "Olá " + nome + "!";
+        }
+    </script>-->
+
+    <!--<h1 id="mensagem">Olá!</h1>
+    <input type="text" id="nome" placeholder="Digite seu nome" />
+    <button onclick="exibirSaudacao()">Enviar</button>
+
+    <script>
+        function exibirSaudacao() {
+            const nome = document.querySelector("#nome").value;
+            document.querySelector("#mensagem").innerText = "Olá, " + nome + "!";
+        }
+    </script>-->
+
+
+    <h1>Olá!</h1>
+    <input type="text" placeholder="Digite seu nome" />
+    <button onclick="exibirSaudacao()">Enviar</button>
+
+    <script>
+        function exibirSaudacao() {
+            const nome = document.querySelector("input").value;
+            document.querySelector("h1").innerText = "Olá, " + nome + "!";
+        }
+    </script>
+
+
+</body>
+
+</html>
