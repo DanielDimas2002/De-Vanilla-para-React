@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulário</title>
 </head>
+
 <body>
-    
+    <form id="formulario">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" placeholder="Digite seu nome" required />
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Digite seu e-mail" required />
+        <p id="mensagem-erro" style="color: red;"></p>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+    <script>
+
+        const formulario = document.getElementById("formulario");
+        const campoEmail = document.getElementById("email");
+        const paragrafoErro = document.getElementById("mensagem-erro")
+
+
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault() // impede o recarregamento da página
+            const nome = document.getElementById("nome").value;
+            const email = campoEmail.value;
+
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                paragrafoErro.innerText = "Por favor, insira um e-mail válido."
+                return;
+            }
+
+            paragrafoErro.innerText = ""; // limpa a mensagem se estiver tudo certo
+
+            console.log("Nome diigtado:", nome);
+            console.log("E-mail:", email);
+        });
+
+    </script>
 </body>
+
 </html>
