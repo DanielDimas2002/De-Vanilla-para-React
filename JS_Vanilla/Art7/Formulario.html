@@ -5,6 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
+
+    <style>
+        .campo-invalido {
+            border: 2px solid red;
+        }
+
+        .campo-valido {
+            border: 2px solid green;
+        }
+
+        .mensagem-erro {
+            color: red;
+        }
+
+        .mensagem-sucesso {
+            color: green;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -14,35 +33,63 @@
 
         <label for="email">Email</label>
         <input type="text" id="email" name="email" placeholder="Digite seu e-mail" required />
-        <p id="mensagem-erro" style="color: red;"></p>
+        <p id="mensagem-erro-email" style="color: red;"></p>
+
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade" placeholder="Digite sua idade" required />
+        <p id="mensagem-erro-idade" style="color: red;"></p>
 
         <button type="submit">Enviar</button>
-
     </form>
 
     <script>
-
         const formulario = document.getElementById("formulario");
         const campoEmail = document.getElementById("email");
-        const paragrafoErro = document.getElementById("mensagem-erro")
+        const campoIdade = document.getElementById("idade");
 
+        const erroEmail = document.getElementById("mensagem-erro-email");
+        const erroIdade = document.getElementById("mensagem-erro-idade");
 
         formulario.addEventListener("submit", function (evento) {
-            evento.preventDefault() // impede o recarregamento da página
-            const nome = document.getElementById("nome").value;
-            const email = campoEmail.value;
+            evento.preventDefault();
 
-            if (email === "" || !email.includes("@") || !email.includes(".")) {
-                paragrafoErro.innerText = "Por favor, insira um e-mail válido."
-                return;
+            const nome = document.getElementById("nome");
+            const email = campoEmail;
+            const idade = document.getElementById("idade");
+            const valorIdade = parseInt(idade.value);
+
+            let temErro = false;
+
+            // Validação do e-mail
+            if (email.value === "" || !email.value.includes("@") || !email.value.includes(".")) {
+                email.classList.add("campo-invalido");
+                email.classList.remove("campo-valido");
+                paragrafoErro.innerText = "Por favor, insira um e-mail válido.";
+                temErro = true;
+            } else {
+                email.classList.remove("campo-invalido");
+                email.classList.add("campo-valido");
             }
 
-            paragrafoErro.innerText = ""; // limpa a mensagem se estiver tudo certo
+            // Validação da idade
+            if (isNaN(valorIdade) || valorIdade <= 0) {
+                idade.classList.add("campo-invalido");
+                idade.classList.remove("campo-valido");
+                paragrafoErro.innerText += "\nIdade inválida.";
+                temErro = true;
+            } else {
+                idade.classList.remove("campo-invalido");
+                idade.classList.add("campo-valido");
+            }
 
-            console.log("Nome diigtado:", nome);
-            console.log("E-mail:", email);
+            if (!temErro) {
+                paragrafoErro.innerText = "";
+                nome.classList.add("campo-valido");
+                console.log("Nome:", nome.value);
+                console.log("E-mail:", email.value);
+                console.log("Idade:", valorIdade);
+            }
         });
-
     </script>
 </body>
 
