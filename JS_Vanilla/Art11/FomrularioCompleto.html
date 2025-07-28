@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Completo</title>
+  <style>
+    /* Estilo mínimo apenas para feedback visual */
+    .erro {
+      color: red;
+      font-size: 14px;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Formulário Completo</h1>
+
+  <form id="formulario">
+    <!-- Campo de Nome -->
+    <label for="nome">Nome completo:</label>
+    <input type="text" id="nome" required placeholder="Digite seu nome completo">
+    <p id="erro-nome" class="erro"></p>
+
+    <!-- Campo de E-mail -->
+    <label for="email">E-mail:</label>
+    <input type="text" id="email" required placeholder="Digite seu e-mail">
+    <p id="erro-email" class="erro"></p>
+
+    <!-- Campo de Idade -->
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" required placeholder="Digite sua idade">
+    <p id="erro-idade" class="erro"></p>
+
+    <!-- Campo de Mensagem -->
+    <label for="mensagem">Mensagem (opcional):</label>
+    <textarea id="mensagem" maxlength="300" placeholder="Digite sua mensagem (máx. 300 caracteres)"></textarea>
+    <p id="contador-caracteres"></p>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+
+    // Pegamos os campos e os parágrafos de erro
+    const campoNome = document.getElementById("nome");
+    const campoEmail = document.getElementById("email");
+    const campoIdade = document.getElementById("idade");
+    const campoMensagem = document.getElementById("mensagem");
+
+    const erroNome = document.getElementById("erro-nome");
+    const erroEmail = document.getElementById("erro-email");
+    const erroIdade = document.getElementById("erro-idade");
+    const contadorCaracteres = document.getElementById("contador-caracteres");
+
+    // Monitora o textarea e atualiza o contador de caracteres
+    campoMensagem.addEventListener("input", function () {
+      const total = campoMensagem.value.length;
+      contadorCaracteres.innerText = `${total}/300 caracteres`;
+    });
+
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault(); // impede o recarregamento da página
+
+      let formularioValido = true;
+
+      // Validação do nome
+      if (campoNome.value.trim() === "") {
+        erroNome.innerText = "O nome é obrigatório.";
+        formularioValido = false;
+      } else {
+        erroNome.innerText = "";
+      }
+
+      // Validação do e-mail com Regex simples
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(campoEmail.value);
+      if (!emailValido) {
+        erroEmail.innerText = "Por favor, insira um e-mail válido.";
+        formularioValido = false;
+      } else {
+        erroEmail.innerText = "";
+      }
+
+      // Validação da idade
+      const idade = parseInt(campoIdade.value);
+      if (isNaN(idade) || idade <= 0) {
+        erroIdade.innerText = "Informe uma idade válida (número positivo).";
+        formularioValido = false;
+      } else {
+        erroIdade.innerText = "";
+      }
+
+      // Se tudo estiver certo, mostramos os dados no console
+      if (formularioValido) {
+        console.log("Nome:", campoNome.value);
+        console.log("E-mail:", campoEmail.value);
+        console.log("Idade:", campoIdade.value);
+        console.log("Mensagem:", campoMensagem.value);
+        alert("Formulário enviado com sucesso!");
+      }
+    });
+  </script>
+</body>
+
+</html>
