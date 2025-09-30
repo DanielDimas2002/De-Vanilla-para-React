@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação</title>
+</head>
+
+<body>
+
+    <p id="mensagem"></p>
+
+    <script>
+        const agora = new Date();
+        const hora = agora.getHours();
+        const mensagem = document.getElementById("mensagem");
+
+        if (hora < 12) {
+            mensagem.innerText = "Bom dia!";
+        } else if (hora < 18) {
+            mensagem.innerText = "Boa tarde!";
+        } else {
+            mensagem.innerText = "Boa noite!";
+        }
+    </script>
+</body>
+
+</html>
